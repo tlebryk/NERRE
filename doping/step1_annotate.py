@@ -20,7 +20,7 @@ import sys
 from chemdataextractor.doc import Paragraph
 from monty.serialization import loadfn, dumpfn
 
-from constants import DATADIR
+from .constants import DATADIR
 
 MULTI_DELIMITER = "||"
 YN_SUFFIX = "(y/n, or enter for yes): "

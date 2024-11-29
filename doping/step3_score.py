@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 import jellyfish
 import numpy as np
 
-from constants import DATADIR
-from step2_train_predict import llm_completion_from_sentence_json
+from .constants import DATADIR
+from .step2_train_predict import llm_completion_from_sentence_json
 
 EVALUATE_MODIFIERS_AND_RESULTS = False
 
