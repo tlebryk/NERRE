@@ -24,9 +24,9 @@ from monty.serialization import loadfn, dumpfn
 import warnings
 import datetime
 
-from constants import DATADIR
-from util import dump_jsonl
-from step1_annotate import preprocess_text, sentence_is_paradigm
+from .constants import DATADIR
+from .util import dump_jsonl
+from .step1_annotate import preprocess_text, sentence_is_paradigm
 
 
 START_TOKEN = "\n###\n"
