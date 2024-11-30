@@ -19,7 +19,7 @@ import sys
 
 # from chemdataextractor.doc import Paragraph
 from monty.serialization import loadfn, dumpfn
-
+from jkljlkj import hkjjl
 from .constants import DATADIR
 
 MULTI_DELIMITER = "||"
