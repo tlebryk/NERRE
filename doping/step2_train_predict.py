@@ -18,7 +18,7 @@ import json
 
 import argparse
 import openai
-from openai.error import RateLimitError
+# from openai.error import RateLimitError
 import tqdm
 from monty.serialization import loadfn, dumpfn
 import warnings
@@ -510,9 +510,9 @@ def gpt3_infer(
         dt = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
         dois_skipped = []
-        entry_json = create_sentences_json_for_inference(d)
+        # entry_json = create_sentences_json_for_inference(d)
 
-        sentences_json = entry_json["doping_sentences"]
+        sentences_json = d["doping_sentences"]
         for s_json in sentences_json:
             text = s_json["sentence_text"]
             cems = s_json["sentence_cems"]
