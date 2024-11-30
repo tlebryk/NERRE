@@ -18,7 +18,7 @@ import json
 
 import argparse
 import openai
-from openai.error import RateLimitError
+# from openai.error import RateLimitError
 import tqdm
 from monty.serialization import loadfn, dumpfn
 import warnings
@@ -474,7 +474,7 @@ def gpt3_finetune(
     print(f"Model fine-tuning is in progress. Raw training JSONL data stored at {training_filename}.")
     return data_training_dois, training_filename
 
-
+# DEPRECATED
 def gpt3_infer(
         data_inference,
         model,

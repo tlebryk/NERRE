@@ -17,7 +17,7 @@ import datetime
 import traceback
 import sys
 
-# from chemdataextractor.doc import Paragraph
+from chemdataextractor.doc import Paragraph
 from monty.serialization import loadfn, dumpfn
 
 from .constants import DATADIR
