@@ -17,7 +17,7 @@ import datetime
 import traceback
 import sys
 
-from chemdataextractor.doc import Paragraph
+# from chemdataextractor.doc import Paragraph
 from monty.serialization import loadfn, dumpfn
 
 from .constants import DATADIR
@@ -28,27 +28,130 @@ NULL_SUFFIX = "(enter text, or enter for 'null'): "
 MULTI_SEPARATION = f"separated by '{MULTI_DELIMITER}'"
 MULTI_AND_NULL = f"{MULTI_SEPARATION} {NULL_SUFFIX}"
 
-ELEMENTS = ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg',
-            'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K',
-            'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn',
-            'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr',
-            'Rb', 'Sr', 'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag',
-            'Cd', 'In', 'Sn', 'Sb', 'Te', 'I',
-            'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd',
-            'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb',
-            'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg', 'Tl',
-            'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr',
-            'Ra', 'Ac', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf',
-            'Es', 'Fm', 'Md', 'No', 'Lr', 'Rf',
-            'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds', 'Rg', 'Cn', 'Nh', 'Fl', 'Mc',
-            'Lv', 'Ts', 'Og', 'Uue']
+ELEMENTS = [
+    "H",
+    "He",
+    "Li",
+    "Be",
+    "B",
+    "C",
+    "N",
+    "O",
+    "F",
+    "Ne",
+    "Na",
+    "Mg",
+    "Al",
+    "Si",
+    "P",
+    "S",
+    "Cl",
+    "Ar",
+    "K",
+    "Ca",
+    "Sc",
+    "Ti",
+    "V",
+    "Cr",
+    "Mn",
+    "Fe",
+    "Co",
+    "Ni",
+    "Cu",
+    "Zn",
+    "Ga",
+    "Ge",
+    "As",
+    "Se",
+    "Br",
+    "Kr",
+    "Rb",
+    "Sr",
+    "Y",
+    "Zr",
+    "Nb",
+    "Mo",
+    "Tc",
+    "Ru",
+    "Rh",
+    "Pd",
+    "Ag",
+    "Cd",
+    "In",
+    "Sn",
+    "Sb",
+    "Te",
+    "I",
+    "Xe",
+    "Cs",
+    "Ba",
+    "La",
+    "Ce",
+    "Pr",
+    "Nd",
+    "Pm",
+    "Sm",
+    "Eu",
+    "Gd",
+    "Tb",
+    "Dy",
+    "Ho",
+    "Er",
+    "Tm",
+    "Yb",
+    "Lu",
+    "Hf",
+    "Ta",
+    "W",
+    "Re",
+    "Os",
+    "Ir",
+    "Pt",
+    "Au",
+    "Hg",
+    "Tl",
+    "Pb",
+    "Bi",
+    "Po",
+    "At",
+    "Rn",
+    "Fr",
+    "Ra",
+    "Ac",
+    "Th",
+    "Pa",
+    "U",
+    "Np",
+    "Pu",
+    "Am",
+    "Cm",
+    "Bk",
+    "Cf",
+    "Es",
+    "Fm",
+    "Md",
+    "No",
+    "Lr",
+    "Rf",
+    "Db",
+    "Sg",
+    "Bh",
+    "Hs",
+    "Mt",
+    "Ds",
+    "Rg",
+    "Cn",
+    "Nh",
+    "Fl",
+    "Mc",
+    "Lv",
+    "Ts",
+    "Og",
+    "Uue",
+]
 
 
-def wrap_input(
-        prompt,
-        null_possible=False,
-        multi_and_null=False
-):
+def wrap_input(prompt, null_possible=False, multi_and_null=False):
     """
     Wrap the input for an entry from <input>. Note "prompt" here does
     not correspond to anything relevant to LLMs, it is just a command
@@ -90,11 +193,7 @@ def yn_input(prompt):
     satisfied = False
     output = None
 
-    yn_map = {
-        "": True,
-        "n": False,
-        "y": True
-    }
+    yn_map = {"": True, "n": False, "y": True}
 
     while not satisfied:
         yn = wrap_input(f"{prompt} {YN_SUFFIX}")
@@ -139,6 +238,7 @@ def wrap_input_multi(prompt):
     return [item for item in wrapped.split(MULTI_DELIMITER) if item]
 
 
+# DEPRECATED
 def preprocess_text(text):
     """
     Preprocess a string to be presented to the user.
@@ -149,7 +249,20 @@ def preprocess_text(text):
     Returns:
         (str, list) The preprocessed text, and the list of chemical entities.
     """
-    for tok in ("<inf>", "</inf>", "<sup>", "</sup>", "<hi>", "</hi>", "<sub>", "</sub", "$$", "\hbox", "\emph", "\\bf"):
+    for tok in (
+        "<inf>",
+        "</inf>",
+        "<sup>",
+        "</sup>",
+        "<hi>",
+        "</hi>",
+        "<sub>",
+        "</sub",
+        "$$",
+        "\hbox",
+        "\emph",
+        "\\bf",
+    ):
         text = text.replace(tok, "")
 
     text = text.replace("\n", " ")
@@ -178,25 +291,37 @@ def sentence_is_paradigm(sentence, cems):
 
     """
     # Paradigm: has a directly doping related word
-    if any([paradigm in sentence.lower() for paradigm in (" dop", "-dop", "n-type", "p-type", "codop")]):
+    if any(
+        [
+            paradigm in sentence.lower()
+            for paradigm in (" dop", "-dop", "n-type", "p-type", "codop")
+        ]
+    ):
         return True
     elif cems:
 
         # Paradigm: has a host:dopant type syntax
         if ":" in sentence:
-            possible_subtoks = [f":{cem}" for cem in cems] + \
-                               [f"{cem}:" for cem in cems] + \
-                               [f"{cem} :" for cem in cems] + \
-                               [f": {cem}" for cem in cems] + \
-                               [f":{el}+" for el in ELEMENTS] + \
-                               [f":{el}-" for el in ELEMENTS] + \
-                               [f":{el} " for el in ELEMENTS]
+            possible_subtoks = (
+                [f":{cem}" for cem in cems]
+                + [f"{cem}:" for cem in cems]
+                + [f"{cem} :" for cem in cems]
+                + [f": {cem}" for cem in cems]
+                + [f":{el}+" for el in ELEMENTS]
+                + [f":{el}-" for el in ELEMENTS]
+                + [f":{el} " for el in ELEMENTS]
+            )
             if any([pst.lower() in sentence.lower() for pst in possible_subtoks]):
                 return True
 
     # Paradigm: has a solid-solution-like material
     # May occur even if the cem is not recognized due to bad CDE
-    if any([pst in sentence.lower() for pst in ("-x", "+x", "-y", "+y", "-z", "+z", "−x", "−y", "−z")]):
+    if any(
+        [
+            pst in sentence.lower()
+            for pst in ("-x", "+x", "-y", "+y", "-z", "+z", "−x", "−y", "−z")
+        ]
+    ):
         return True
 
 
@@ -213,7 +338,9 @@ def annotate_paradigm(s, cems, entry):
         (dict, bool) The updated entry, and whether or not the entry was accepted by user.
     """
     print("Sentence contains possible doping information.")
-    s_pretty = s.replace("dop", colored(255, 0, 0, "dop")).replace(":", colored(255, 0, 0, ":"))
+    s_pretty = s.replace("dop", colored(255, 0, 0, "dop")).replace(
+        ":", colored(255, 0, 0, ":")
+    )
 
     print(f"\n\t{s_pretty}\n\n")
 
@@ -223,7 +350,9 @@ def annotate_paradigm(s, cems, entry):
 
         basemats = wrap_input_multi("Enter all base materials: ")
         dopants = wrap_input_multi("Enter all dopants: ")
-        results = wrap_input_multi("Enter all results  or solid solutions (1-x's, specific stoichiometries): ")
+        results = wrap_input_multi(
+            "Enter all results  or solid solutions (1-x's, specific stoichiometries): "
+        )
         basemats = {f"b{i}": bmat for i, bmat in enumerate(basemats)}
         dopants = {f"d{i}": dop for i, dop in enumerate(dopants)}
         results = {f"r{i}": res for i, res in enumerate(results)}
@@ -234,12 +363,15 @@ def annotate_paradigm(s, cems, entry):
         if basemats:
             for didx, dname in dopants.items():
                 links = wrap_input_multi(
-                    f"What basemats among \n {pprint.pformat(basemats)} \nare linked to dopant {dname}, per their index?")
+                    f"What basemats among \n {pprint.pformat(basemats)} \nare linked to dopant {dname}, per their index?"
+                )
                 links = [idx.strip() for idx in links]
                 dopants2basemats[didx] = links
 
         # Enter any modifiers for this sentence
-        modifiers = wrap_input_multi(f"Enter any modifiers for this doping mention (doping amounts, non-doping, self-doping, etc.)")
+        modifiers = wrap_input_multi(
+            f"Enter any modifiers for this doping mention (doping amounts, non-doping, self-doping, etc.)"
+        )
 
         entry = {
             "sentence_text": s,
@@ -283,16 +415,10 @@ def annotate_doping_basic(doc):
     doi = doc["doi"]
     text = doc["abstract"]
 
-    extracted = {
-        "doi": doi,
-        "text": text,
-        "title": title,
-        "doping_sentences": []
-    }
+    extracted = {"doi": doi, "text": text, "title": title, "doping_sentences": []}
 
     title_and_text = f"{title}. {text}" if title else text
     sentences, cems_per_sentence = preprocess_text(title_and_text)
-
 
     entries = []
     for i, s in enumerate(sentences):
@@ -306,14 +432,18 @@ def annotate_doping_basic(doc):
             "results": {},
             "doping_modifiers": [],
             "dopants2basemats": {},
-            "relevant": False
+            "relevant": False,
         }
 
         if sentence_is_paradigm(s, cems):
             entry, accepted = annotate_paradigm(s, cems, entry)
 
         else:
-            print(colored(255, 0, 0, f"\tSentence \t\t\n'{s}'\n \tdoes not contain paradigm."))
+            print(
+                colored(
+                    255, 0, 0, f"\tSentence \t\t\n'{s}'\n \tdoes not contain paradigm."
+                )
+            )
             accepted = yn_input(colored(255, 255, 0, "Accept empty entry?"))
 
             if not accepted:
@@ -336,7 +466,7 @@ def annotate_doping_basic(doc):
                     edit_it = yn_input(f"Edit entry manually?")
 
                     if edit_it:
-                        EDITOR = os.environ.get('EDITOR', 'vim')  # that easy!
+                        EDITOR = os.environ.get("EDITOR", "vim")  # that easy!
                         tfname = ".tmpfile.json"
 
                         dumpfn(entry, tfname)
@@ -345,44 +475,49 @@ def annotate_doping_basic(doc):
                         try:
                             entry = loadfn(tfname)
                         except:
-                            warnings.warn("Failure to read file (likely bad formatting!) Reverting...")
+                            warnings.warn(
+                                "Failure to read file (likely bad formatting!) Reverting..."
+                            )
                             accepted = False
 
     n_sentences = len(entries)
     n_relevant = len([e for e in entries if e["relevant"]])
     n_irrelevant = n_sentences - n_relevant
-    print(f"Extracted {n_relevant} sentence level doping graphs from {n_sentences} (ignored {n_irrelevant}).")
+    print(
+        f"Extracted {n_relevant} sentence level doping graphs from {n_sentences} (ignored {n_irrelevant})."
+    )
 
     extracted["doping_sentences"] = entries
     return extracted
 
+
 if __name__ == "__main__":
-    p = argparse.ArgumentParser(fromfile_prefix_chars='@')
+    p = argparse.ArgumentParser(fromfile_prefix_chars="@")
 
     dt = datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")
 
     p.add_argument(
-        '--corpus_file',
+        "--corpus_file",
         help='Specify the JSON file to read from. Must contain a "doi", "title", '
-             'and "abstract" fields in each document. Default is only the 162 '
-             'abstracts used in the publication ("raw_data.json"). In practice, '
-             'more abstracts should be used.',
+        'and "abstract" fields in each document. Default is only the 162 '
+        'abstracts used in the publication ("raw_data.json"). In practice, '
+        "more abstracts should be used.",
         default=os.path.join(DATADIR, "raw_data.json"),
-        required=False
+        required=False,
     )
 
     p.add_argument(
-        '--output_file',
-        help='Specify the output file to dump json annotations into.',
+        "--output_file",
+        help="Specify the output file to dump json annotations into.",
         default=os.path.join(DATADIR, f"all_annotations_{dt}.json"),
-        required=False
+        required=False,
     )
 
     p.add_argument(
-        '--n',
+        "--n",
         type=int,
         help="Specify the number of documents to annotate.",
-        required=False
+        required=False,
     )
 
     p.add_argument(
@@ -390,7 +525,7 @@ if __name__ == "__main__":
         type=bool,
         default=False,
         help="If True, gets a random aggregation of n samples from the dataset.",
-        required=False
+        required=False,
     )
 
     args = p.parse_args()
@@ -414,7 +549,7 @@ if __name__ == "__main__":
     for doc in docs:
         j += 1
         print(f"\n\nDoc {j} of {n_samples}: {doc['doi']}")
-        print("----"*10)
+        print("----" * 10)
 
         repeat = True
         do_exit = None
