@@ -1,0 +1,302 @@
+[
+    {
+        "doi": "10.1007/s10853-017-1104-8",
+        "text": "A comparative study is presented on chemical bath-deposited ZnO films, doped with the group-13 metals Al, Ga and In. The study reveals marked differences in dopant incorporation in the films, which increases in the order: In, Al and Ga. The presence of dopant in the solution induces significant modifications in the deposition rate, which varies between 110 and 40\u00a0nm\u00a0min\u22121. All films are (002)-textured, whereas the lattice stress evolution with the dopant type and concentration suggests that Ga has the highest degree of substitutional incorporation in Zn sites. The average visible transmittance is higher than 80%, while the infrared reflectivity depends on the free carrier density in the films, which is the lowest for undoped ZnO and increases in the order: In-, Al- and Ga-doped ZnO. Optical measurements also yield an inverse correlation between carrier density and mobility. Doping enlarges the bandgap, as well as the Urbach energy that is related to the films\u2019 disorder. The lowest electrical resistivity, measured by four-point probe, is 1.7\u00a0\u00d7\u00a010\u22122\u00a0\u03a9\u00a0cm and is obtained for In-doped films after being exposed to ultraviolet light. Ga-doped films are found to exhibit the highest stability of the conductivity upon ultraviolet exposure.",
+        "title": "Comparison of chemical bath-deposited ZnO films doped with Al, Ga and In",
+        "doping_sentences": [
+            {
+                "sentence_text": "Comparison of chemical bath-deposited ZnO films doped with Al, Ga and In.",
+                "sentence_cems": [
+                    "ZnO",
+                    "Al",
+                    "Ga"
+                ],
+                "basemats": {
+                    "b0": "ZnO"
+                },
+                "dopants": {
+                    "d0": "Al",
+                    "d1": "Ga",
+                    "d2": "In"
+                },
+                "results": {},
+                "dopants2basemats": {
+                    "d0": [
+                        "b0"
+                    ],
+                    "d1": [
+                        "b0"
+                    ],
+                    "d2": [
+                        "b0"
+                    ]
+                },
+                "doping_modifiers": [],
+                "relevant": true
+            },
+            {
+                "sentence_text": "A comparative study is presented on chemical bath-deposited ZnO films, doped with the group-13 metals Al, Ga and In.",
+                "sentence_cems": [
+                    "ZnO",
+                    "Al",
+                    "Ga"
+                ],
+                "basemats": {
+                    "b0": "ZnO"
+                },
+                "dopants": {
+                    "d0": "group-13 metals",
+                    "d1": "Al",
+                    "d2": "Ga",
+                    "d3": "In"
+                },
+                "results": {},
+                "dopants2basemats": {
+                    "d0": [
+                        "b0"
+                    ],
+                    "d1": [
+                        "b0"
+                    ],
+                    "d2": [
+                        "b0"
+                    ],
+                    "d3": [
+                        "b0"
+                    ]
+                },
+                "doping_modifiers": [],
+                "relevant": true
+            },
+            {
+                "sentence_text": "The study reveals marked differences in dopant incorporation in the films, which increases in the order: In, Al and Ga.",
+                "sentence_cems": [
+                    "Al",
+                    "Ga"
+                ],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "The presence of dopant in the solution induces significant modifications in the deposition rate, which varies between 110 and 40\u00a0nm\u00a0min\u22121.",
+                "sentence_cems": [],
+                "basemats": {
+                    "b0": "solution"
+                },
+                "dopants": {},
+                "results": {},
+                "dopants2basemats": {},
+                "doping_modifiers": [],
+                "relevant": true
+            },
+            {
+                "sentence_text": "All films are (002)-textured, whereas the lattice stress evolution with the dopant type and concentration suggests that Ga has the highest degree of substitutional incorporation in Zn sites.",
+                "sentence_cems": [
+                    "Ga",
+                    "Zn"
+                ],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "dopants2basemats": {},
+                "doping_modifiers": [],
+                "relevant": true
+            },
+            {
+                "sentence_text": "The average visible transmittance is higher than 80%, while the infrared reflectivity depends on the free carrier density in the films, which is the lowest for undoped ZnO and increases in the order: In-, Al- and Ga-doped ZnO.",
+                "sentence_cems": [
+                    "ZnO",
+                    "Al",
+                    "Ga",
+                    "ZnO"
+                ],
+                "basemats": {
+                    "b0": "ZnO"
+                },
+                "dopants": {
+                    "d0": "In",
+                    "d1": "Al",
+                    "d2": "Ga"
+                },
+                "results": {},
+                "dopants2basemats": {
+                    "d0": [
+                        "b0"
+                    ],
+                    "d1": [
+                        "b0"
+                    ],
+                    "d2": [
+                        "b0"
+                    ]
+                },
+                "doping_modifiers": [],
+                "relevant": true
+            },
+            {
+                "sentence_text": "Optical measurements also yield an inverse correlation between carrier density and mobility.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "Doping enlarges the bandgap, as well as the Urbach energy that is related to the films\u2019 disorder.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "The lowest electrical resistivity, measured by four-point probe, is 1.7\u00a0\u00d7\u00a010\u22122\u00a0\u03a9\u00a0cm and is obtained for In-doped films after being exposed to ultraviolet light.",
+                "sentence_cems": [],
+                "basemats": {
+                    "b0": "films"
+                },
+                "dopants": {
+                    "d0": "In"
+                },
+                "results": {},
+                "dopants2basemats": {
+                    "d0": [
+                        "b0"
+                    ]
+                },
+                "doping_modifiers": [],
+                "relevant": true
+            },
+            {
+                "sentence_text": "Ga-doped films are found to exhibit the highest stability of the conductivity upon ultraviolet exposure.",
+                "sentence_cems": [
+                    "Ga"
+                ],
+                "basemats": {
+                    "b0": "films"
+                },
+                "dopants": {
+                    "d0": "Ga"
+                },
+                "results": {},
+                "dopants2basemats": {
+                    "d0": [
+                        "b0"
+                    ]
+                },
+                "doping_modifiers": [],
+                "relevant": true
+            }
+        ]
+    },
+    {
+        "doi": "10.1007/s40843-018-9339-1",
+        "text": "This work presents a short and very efficient method to produce high performance textured Ca 3 Co 4 O 9 thermoelectric materials through initial powders modification. Microstructure has shown good grain orientation, and low porosity while slightly lower grain sizes were obtained in samples prepared from attrition milled powders. All samples show the high density of around 96% of the theoretical value. These similar characteristics are reflected in, approximately, the same electrical resistivity and Seebeck coefficient values for both types of samples. However, in spite of similar power factor (PF) at low temperatures, it is slightly higher at high temperature for the attrition milled samples. On the other hand, the processing time reduction (from 38 to 2 h) when using attrition milled precursors, leads to lower mechanical properties in these samples. All these data clearly point out to the similar characteristics of both kinds of samples, with a drastic processing time decrease when using attrition milled precursors, which is of the main economic importance when considering their industrial production.",
+        "title": "Fast preparation route to high-performances textured Sr-doped Ca <inf>3</inf> Co <inf>4</inf> O <inf>9</inf> thermoelectric materials through precursor powder modification",
+        "doping_sentences": [
+            {
+                "sentence_text": "Fast preparation route to high-performances textured Sr-doped Ca 3 Co 4 O 9 thermoelectric materials through precursor powder modification.",
+                "sentence_cems": [
+                    "Sr",
+                    "Ca",
+                    "Co 4 O 9"
+                ],
+                "basemats": {
+                    "b0": "Ca 3 Co 4 O 9"
+                },
+                "dopants": {
+                    "d0": "Sr"
+                },
+                "results": {},
+                "dopants2basemats": {
+                    "d0": [
+                        "b0"
+                    ]
+                },
+                "doping_modifiers": [],
+                "relevant": true
+            },
+            {
+                "sentence_text": "This work presents a short and very efficient method to produce high performance textured Ca 3 Co 4 O 9 thermoelectric materials through initial powders modification.",
+                "sentence_cems": [
+                    "Ca",
+                    "Co 4 O 9"
+                ],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "Microstructure has shown good grain orientation, and low porosity while slightly lower grain sizes were obtained in samples prepared from attrition milled powders.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "All samples show the high density of around 96% of the theoretical value.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "These similar characteristics are reflected in, approximately, the same electrical resistivity and Seebeck coefficient values for both types of samples.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "However, in spite of similar power factor (PF) at low temperatures, it is slightly higher at high temperature for the attrition milled samples.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "On the other hand, the processing time reduction (from 38 to 2 h) when using attrition milled precursors, leads to lower mechanical properties in these samples.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            },
+            {
+                "sentence_text": "All these data clearly point out to the similar characteristics of both kinds of samples, with a drastic processing time decrease when using attrition milled precursors, which is of the main economic importance when considering their industrial production.",
+                "sentence_cems": [],
+                "basemats": {},
+                "dopants": {},
+                "results": {},
+                "doping_modifiers": [],
+                "dopants2basemats": {},
+                "relevant": false
+            }
+        ]
+    }
+]
