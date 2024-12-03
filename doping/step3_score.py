@@ -305,7 +305,7 @@ def main(args):
     loud = args.loud
     schema_type = args.schema_type
     lowercase = args.enforce_lowercase
-
+    output_dir = args.output_dir
     kwargs = {"write_results": False, "write_modifiers": False}
     if schema_type == "eng":
         fmt = "eng"
@@ -360,7 +360,8 @@ def main(args):
     df["score"] = scores_df
 
     print(df)
-
+    # save df
+    df.to_csv(os.path.join(output_dir, "scores.csv"), index=False)
     print("Total sequences was:", sequences_total)
     print("Frac. Sequences parsable: ", sequences_parsable / sequences_total)
     print("Avg sequence similarity: ", np.mean(sequences_distances))
@@ -415,6 +416,13 @@ if __name__ == "__main__":
         "--enforce-lowercase",
         action="store_true",
         help="If true, lowercase all words for evaluation. Should only be used with seq2rel results.",
+    )
+
+    p.add_argument(
+        "--output_dir",
+        help="The output directory to write results to.",
+        default=os.path.join(DATADIR, "results"),
+        required=False,
     )
 
     args = p.parse_args()

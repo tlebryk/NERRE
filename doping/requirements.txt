@@ -1,4 +1,4 @@
-# ChemDataExtractor==1.3.0
+# ChemDataExtractor
 openai
 tqdm
 monty==2021.12.1
