@@ -325,9 +325,7 @@ def main(test_file, pred_file, plot, loud, schema_type, enforce_lowercase, outpu
             )
             sjson["completion"] = c
 
-    print(
-        f"Scoring outputs using \n\ttest file: {args.test_file}\n\tpred file: {args.pred_file}"
-    )
+    print(f"Scoring outputs using \n\ttest file: {test_file}\n\tpred file: {pred_file}")
 
     (
         scores_computed,
@@ -428,4 +426,4 @@ if __name__ == "__main__":
 
     args = p.parse_args()
     print(f"{vars(args)}")
-    main(args)
+    main(vars(args))
