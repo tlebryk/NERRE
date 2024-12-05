@@ -6,6 +6,7 @@ potential schemas presented in the publication.
 import os
 import argparse
 import json
+import time
 
 import pandas as pd
 from monty.serialization import loadfn
@@ -298,15 +299,15 @@ def evaluate(gold, test, loud=False, lowercase=False):
 
 
 # TODO: refactor this to get off args
-def main(args):
-    gold = loadfn(args.test_file)
-    test = loadfn(args.pred_file)
-    plot = args.plot
-    loud = args.loud
-    schema_type = args.schema_type
-    lowercase = args.enforce_lowercase
-    output_dir = args.output_dir
+def main(test_file, pred_file, plot, loud, schema_type, enforce_lowercase, output_dir):
+    gold = loadfn(test_file)
+    test = loadfn(pred_file)
+    lowercase = enforce_lowercase
     kwargs = {"write_results": False, "write_modifiers": False}
+    if not output_dir:
+        # use current datetime
+        output_dir = f"outputs/{time.strftime('%Y-%m-%d_%H-%M-%S')}"
+    os.makedirs(output_dir, exist_ok=True)
     if schema_type == "eng":
         fmt = "eng"
 
