@@ -372,7 +372,9 @@ def main(test_file, pred_file, plot, loud, schema_type, enforce_lowercase, outpu
         for container in ax.containers:
             ax.bar_label(container)
         plt.show()
-
+    # save plot to output dir 
+    plotpath = os.path.join(output_dir, "scores.png")
+    plt.savefig(plotpath)
 
 if __name__ == "__main__":
 
