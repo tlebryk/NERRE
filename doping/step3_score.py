@@ -198,8 +198,8 @@ def evaluate(gold, test, loud=False, lowercase=False):
             for is_test, rel_entry in enumerate((gold_entry, test_entry)):
                 for did, bids in rel_entry["dopants2basemats"].items():
                     for bid in bids:
-                        bmat_words = rel_entry["basemats"].get(bid)
-                        dop_words = rel_entry["dopants"].get(did)
+                        bmat_words = rel_entry["basemats"].get(bid, "")
+                        dop_words = rel_entry["dopants"].get(did, "")
                         if not is_test:
                             support["links_ents"] += 1
                         for bmat_word in bmat_words.split(" "):
