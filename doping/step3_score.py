@@ -198,8 +198,8 @@ def evaluate(gold, test, loud=False, lowercase=False):
             for is_test, rel_entry in enumerate((gold_entry, test_entry)):
                 for did, bids in rel_entry["dopants2basemats"].items():
                     for bid in bids:
-                        bmat_words = rel_entry["basemats"][bid]
-                        dop_words = rel_entry["dopants"][did]
+                        bmat_words = rel_entry["basemats"].get(bid)
+                        dop_words = rel_entry["dopants"].get(did)
                         if not is_test:
                             support["links_ents"] += 1
                         for bmat_word in bmat_words.split(" "):
@@ -372,9 +372,10 @@ def main(test_file, pred_file, plot, loud, schema_type, enforce_lowercase, outpu
         for container in ax.containers:
             ax.bar_label(container)
         plt.show()
-    # save plot to output dir 
+    # save plot to output dir
     plotpath = os.path.join(output_dir, "scores.png")
     plt.savefig(plotpath)
+
 
 if __name__ == "__main__":
 
